@@ -2,6 +2,6 @@
 
 ## Members:
 - Austria, Angel O.
-- Seculles, Jonalyn G.
 - Ronquillo, Mike M.
+- Seculles, Jonalyn G.
 - Orenia, Jay-ar L.
