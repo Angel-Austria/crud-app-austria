@@ -10,25 +10,25 @@ const router = Router();
 // READ all
 router.get('/', async (req, res) => {
     const { data, error } = await supabase.from('items')
-    .select('*').order('created_at');
+    .select('*').order('create_at');
     if (error) return res.status(500).json({ error });
     res.json(data);
 });
 
 // CREATE
 router.post('/', async (req, res) => {
-    const { name, description } = req.body;
+    const { name, description, price } = req.body;
     const { data, error } = await supabase.from('items')
-    .insert([{ name, description }]).select();
+    .insert([{ name, description, price }]).select();
     if (error) return res.status(500).json({ error });
     res.status(201).json(data[0]);
 });
 
 // UPDATE
 router.put('/:id', async (req, res) => {
-    const { name, description } = req.body;
+    const { name, description, price } = req.body;
     const { data, error } = await supabase.from('items')
-    .update({ name, description }).eq('id', req.params.id).select();
+    .update({ name, description, price }).eq('id', req.params.id).select();
     if (error) return res.status(500).json({ error });
     res.json(data[0]);
 });
